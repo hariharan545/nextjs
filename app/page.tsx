@@ -39,16 +39,30 @@ export default function HomePage() {
         </p>
         <p className="mt-3">
           Always visible 👉{" "}
-          <BlurText forceReveal className="font-semibold text-blue-600">
-            Force-revealed text
-          </BlurText>
+          <BlurText
+  text="Isn't this so cool?!"
+  delay={150}
+  animateBy="words"
+  direction="top"
+  onAnimationComplete={() => console.log("Done!")}
+  className="text-2xl mb-8 font-bold"
+/>
         </p>
       </section>
 
       {/* Magnet Lines Demo */}
       <section>
         <h2 className="text-2xl font-bold mb-4">Magnet Lines</h2>
-        <MagnetLines lineCount={7} magnetStrength={0.12} lineColor="#555" />
+        <MagnetLines
+        rows={9}
+        columns={9}
+        containerSize="60vmin"
+        lineColor="tomato"
+        lineWidth="0.8vmin"
+        lineHeight="5vmin"
+        baseAngle={0}
+        style={{ margin: "2rem auto" }}
+      />
       </section>
 
       {/* Gemini UI */}

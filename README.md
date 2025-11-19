@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Project Overview: Next.js homepage with:
 
-## Getting Started
+BlurText → animated text with blur/letter or word animation
 
-First, run the development server:
+MagnetLines → interactive grid of lines that move toward the cursor
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Gemini 2.0 UI → input box to query Gemini API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Canvas Layout:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
++------------------------------------------------------+
+|                      HomePage                        |
+|------------------------------------------------------|
+|  [BlurText]                                          |
+|  Animated & blurred text, appears on hover/animate  |
+|                                                      |
+|  [MagnetLines]                                      |
+|  Grid of lines reacting to cursor movement          |
+|                                                      |
+|  [Gemini UI]                                        |
+|  Input box + "Ask Gemini" button + loading state   |
+|  API call to Gemini 2.0 Flash                        |
++------------------------------------------------------+
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+Component Flow Diagram:
 
-To learn more about Next.js, take a look at the following resources:
+   User Input
+       |
+       v
+   [Gemini UI Component]
+       |
+       v
+  POST /api/gemini ---> Gemini 2.0 API
+       |
+       v
+   Response Displayed
+       |
+       v
+     Updated UI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Interactions:
 
-## Deploy on Vercel
+BlurText: Animates letters or words from blur → clear. Supports delay & direction.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MagnetLines: Lines follow cursor with a subtle “magnet” effect. Configurable rows/columns, size, color.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Gemini UI: Server-side API call, shows loading, displays response.
