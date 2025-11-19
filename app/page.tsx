@@ -35,7 +35,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-4">Blur Text</h2>
         <p className="text-lg">
           Hover to reveal 👉{" "}
-          <BlurText blurAmount="8px">This is blurred text</BlurText>
+          {/* <BlurText blurAmount="8px">This is blurred text</BlurText> */}
         </p>
         <p className="mt-3">
           Always visible 👉{" "}
